@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/App.css";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from "prop-types";
@@ -8,11 +8,23 @@ import ForecastDetails from "./ForecastDetails";
 
 function App({ forecasts, location }) {
   const { city, country } = location;
+  const [selectedDate, setSelectedDate] = useState(forecasts[0].date);
+  const selectedForecast = forecasts.find(
+    (forecast) => forecast.date === selectedDate
+  );
+
+  const handleForecastSelect = (date) => {
+    setSelectedDate(date);
+  };
+
   return (
     <div className="weather-app">
       <LocationDetails city={city} country={country} />
-      <ForecastSummaries forecasts={forecasts} />
-      <ForecastDetails forecast={forecasts[0]} />
+      <ForecastSummaries
+        forecasts={forecasts}
+        onForecastSelect={handleForecastSelect}
+      />
+      <ForecastDetails forecast={selectedForecast} />
     </div>
   );
 }
