@@ -13,7 +13,7 @@ describe("ForecastSummary", () => {
     },
   };
 
-  it("renders", () => {
+  it("renders correctly", () => {
     const { asFragment } = render(
       <ForecastSummary
         date={validProps.date}
