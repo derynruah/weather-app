@@ -9,10 +9,8 @@ function App({ forecasts, location }) {
   const { city, country } = location;
   return (
     <div className="weather-app">
-      <div className="forecast">
-        <LocationDetails city={city} country={country} />
-        <ForecastSummaries forecasts={forecasts} />
-      </div>
+      <LocationDetails city={city} country={country} />
+      <ForecastSummaries forecasts={forecasts} />
     </div>
   );
 }
