@@ -2,6 +2,7 @@ import React from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from "prop-types";
 import ForecastSummary from "./ForecastSummary";
+import "../styles/ForecastSummaries.css";
 
 function ForecastSummaries({ forecasts }) {
   return (
